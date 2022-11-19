@@ -1,0 +1,135 @@
+		<html>
+		<head>
+  {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="{% static '/css/main.css' %}">
+	<link rel="stylesheet" href="{% static '/css/DropDown.css' %}">
+	<link rel="stylesheet" href="{% static '/css/headers.css' %}">
+	<script src="{% static '/js/extention/flatpickr.js' %}"></script>
+	<title>{% block title %}{% endblock title %}</title>
+  </head>
+		<body>
+		<form>
+        <fieldset>
+        <legend>Client Portal Development</legend>
+        </fieldset>
+        <header>
+    <div class="px-3 py-2 text-bg-dark">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto my-0 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="#" class="nav-link text-secondary">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                Perm File
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
+                General
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"/></svg>
+                Balance Sheet
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                Revenue
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                Prepaids
+              </a>
+            </li>
+			<li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                Oil
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                Accounts Payable
+              </a>
+            </li>
+			<li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                Income Statement
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                Related Parties
+              </a>
+            </li>
+			<li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                Derivatives 
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                Tax
+              </a>
+            </li>
+			<li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                Payroll
+              </a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+        </header>
+        <div  id="main-form">
+        {% block info %}		
+        {%endblock info%}
+        </div>        
+        </form>
+        <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+    </script>
+		<script>
+      var btnTypes = document.querySelectorAll('.travel-type-wrap .item')
+      var mainForm = document.getElementById('main-form')
+      for (let i = 0; i < btnTypes.length; i++)
+      {
+        btnTypes[i].addEventListener('click', function()
+        {
+          for (let i = 0; i < btnTypes.length; i++)
+          {
+            btnTypes[i].classList.remove('active')
+          }
+          btnTypes[i].classList.add('active')
+          let className = 'type' + i
+          mainForm.className = `${className} main-form`
+        })
+      }
+    </script>
+		</body>
+		</html>

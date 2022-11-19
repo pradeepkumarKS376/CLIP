@@ -1,0 +1,18 @@
+<html>
+<head>
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Create General{% endblock title %}
+</head>
+{% block info %}
+<form method='POST'>
+<body>
+<table class="table table-hover table-responsive">
+{{GeneralCreate}}
+{% csrf_token %}
+</table>
+<input class="btn btn-success" type='submit' value='Add General'>
+</body>
+</form>
+{%endblock info%}
+</html>

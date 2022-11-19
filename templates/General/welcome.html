@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %} table-dark
+
+  <title>General Principles</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<form method="post">
+<body>
+<img src="{% static 'images/RPA.pngs' %}" alt="">
+<img src="{% static 'images/favicon.icos' %}" alt="">
+<div class="container mt-3">
+{% if General_Principles_List %}
+<table class="table">
+<thead><tr><th>Question</th><th>Yes</th><th>No</th><th>NA</th></tr></thead>
+<tbody>
+<tr>
+{% for General_Principles in General_Principles_List %}
+<td class="text-info">{{General_Principles.Question}}</td>
+<td><input type="radio" class="form-check-input" name="html" value="Yes">{{General_Principles.yes}}</td>
+<td><input type="radio" class="form-check-input" name="html" value="NO">{{General_Principles.No}} </td>
+<td><input type="radio" class="form-check-input" name="html" value="NA">{{General_Principles.NA}} </td>
+</tr>
+{% endfor %}
+<tr><td>Cookies count is {{count}}</td></tr>
+</tbody>
+</table>
+{% endif %}
+"C:\Users\Pradeep\PycharmProjects\Financial statement disclosure\Financial_statement_disclosure\Financial_statement_disclosure\settings.py"
+</div>
+</body>
+</form>
+</html>

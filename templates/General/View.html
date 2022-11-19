@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}View General{% endblock title %}
+</head>
+{% block info %}
+<form method="post">
+{% if GeneralView %}
+<div class="table-responsive-md container mt-3">
+<table class="table table-responsive table-hover table-bordered table-sm">
+<thead class="thead-dark">
+<tr>
+    {% for General in GeneralHeader %}
+    <th class="text-danger">
+        {{General.name}}
+    </th>
+    {% endfor %}
+</tr>
+</thead>
+<tbody>
+{% for General in GeneralView %}
+<tr>
+<td style="color:MediumBlue;">{{General.id}}</td>
+    {%if General.Status == "InProgress"%}
+<td style="color:Yellow;">{{General.Status}}</td>
+    {%elif General.Status == "Success"%}
+    <td style="color:green;">{{General.Status}}</td>
+    {%elif General.Status == "Over Due"%}
+    <td style="color:red;">{{General.Status}}</td>
+    {%endif%}
+<td style="color:MediumBlue;">{{General.Audit_Requests}}</td>
+<td style="color:MediumBlue;">{{General.Date_Requested}}</td>
+<td style="color:MediumBlue;">{{General.Due_date}}</td>
+<td style="color:MediumBlue;">{{General.Client_contact}}</td>
+<td style="color:MediumBlue;">{{General.Date_Received}}</td>
+<td style="color:MediumBlue;">{{General.Other_Comments}}</td>
+<td style="color:MediumBlue;">{{General.WT_Comment}}</td>
+{%if General.Select == True %}
+<td><label class="form-check-label">
+<input class="form-check-input" type="checkbox" checked></label></td>
+{% else %}
+<td><label class="form-check-label">
+<input class="form-check-input" type="checkbox"></label></td>
+{%endif%}
+<td><a href="../Update/{{General.id}}">Update</a></td>
+<td><a href="../Delete/{{General.id}}">Delete</a></td>
+</tr>
+{% endfor%}
+</tbody>
+</table>
+</div>
+{% endif %}
+{% csrf_token %}
+<a href="../Email" class="btn btn-primary btn-lg active " role="button" >Email</a>
+<a href="../UpdateAll" class="btn btn-primary btn-lg active" role="button" >UpdateAll</a>
+</form>
+{%endblock info%}
+
+</html>

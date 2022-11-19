@@ -1,0 +1,13 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Update General{% endblock title %}
+{% block info %}
+<form method='POST'>
+  <table class="table table-hover table-responsive">
+{{GeneralUpdate}}
+{% csrf_token %}
+</table>
+<input class="btn btn-success" type='submit' value='Update General'>
+</form>
+{%endblock info%}
+
